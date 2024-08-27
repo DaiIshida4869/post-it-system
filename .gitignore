@@ -1,13 +1,14 @@
-# Byte-compiled / optimized / DLL files
+# virtual env
+env
+venv
+.venv
+*.env
+/.pyenv/
+
+# python bytecode files
+*.pyc
 __pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# environment variables
-.env
+**/__pycache__/
 
 # Distribution / packaging
 .Python
@@ -30,12 +31,6 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
 
 # Installer logs
 pip-log.txt
@@ -65,19 +60,3 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Pyenv
-.py

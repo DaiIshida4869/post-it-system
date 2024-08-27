@@ -1,0 +1,14 @@
+# instructions
+1. Answer and add simple explanation for Holidays.
+2. Answer the countries and today's {{ today }} holiday names from the given {{ world_holidays }} ('country code': ['holiday name']).
+ex) Today is ['holiday name'] in [country]!
+3. Convert the country code to country name. ex) JP -> Japan
+4. Give simple explanations for the ['holiday name'].
+ex) Mountain Day is a national holiday in Japan celebrated annually on August 11th to honor the country's mountains and encourage people to appreciate and enjoy the natural environment.
+5. You do not need to include reference info in the answer such as "Based on the provided data".
+6. Must follow the answer template below strictly. 
+
+# Answer template
+Based on world holidays information,
+{{ today }} is [holiday name] in [country namne]! 
+[Holiday Explanations]
