@@ -5,7 +5,6 @@ from email.mime.text import MIMEText
 import boto3
 from email_lists.list_ses_recipient_email import recipient_emails_list
 from jinja2 import Environment, FileSystemLoader
-from security_tips.list_of_security_tips import security_tips
 
 from src.content_generators import (JokeGenerator, QuoteGenerator,
                                     SecurityTipGenerator)
@@ -23,7 +22,6 @@ def lambda_handler(event, context):
     answer = holiday_checker.get_holiday_explanation(query)
     joke = JokeGenerator.get_random_joke()
     quote = QuoteGenerator.get_random_quote()
-    security_tip = SecurityTipGenerator.get_random_security_tip(security_tips)
     # Email template
     sender = os.getenv('SES_SENDER')
     recipient = recipient_emails_list
@@ -33,7 +31,6 @@ def lambda_handler(event, context):
         answer=answer,
         joke=joke,
         quote=quote,
-        security_tip=security_tip
     )
     msg = MIMEText(body, 'html')
     msg['Subject'] = subject
