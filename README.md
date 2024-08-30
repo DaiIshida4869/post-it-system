@@ -9,3 +9,5 @@
 # Generating Newsletter Content:
 
 > Content Creation: Use AWS Bedrock’s natural language generation models to draft initial content for your newsletters. You can provide prompts or themes related to your business’s news, updates, and industry trends.
+
+![AWS Post-It Diagram](https://github.com/DaiIshida4869/post-it-system/blob/main/AWS%20Post-It%20Diagram.png)
