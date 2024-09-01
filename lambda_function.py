@@ -3,18 +3,13 @@ import os
 from email.mime.text import MIMEText
 
 import boto3
-from email_lists.list_ses_recipient_email import recipient_emails_list
 from jinja2 import Environment, FileSystemLoader
 
-from src.content_generators import (JokeGenerator, QuoteGenerator,
-                                    SecurityTipGenerator)
+from src.content_generators import JokeGenerator, QuoteGenerator
+from src.data_loader import DataLoader
 from src.holiday_checker import HolidayChecker
+from src.template_loader import TemplateLoader
 
-
-def load_template(template_name):
-    file_loader = FileSystemLoader('templates')
-    env = Environment(loader=file_loader)
-    return env.get_template(template_name)
 
 def lambda_handler(event, context):
     query = "Tell me about today's holiday."
@@ -24,9 +19,9 @@ def lambda_handler(event, context):
     quote = QuoteGenerator.get_random_quote()
     # Email template
     sender = os.getenv('SES_SENDER')
-    recipient = recipient_emails_list
+    recipient = DataLoader.load_recipients('recipients.txt')
     subject = "[📝 Amazon Post-It] Morning Fuel: Motivate, Secure, Explore & Laugh Today"
-    template = load_template('email_template.html')
+    template = TemplateLoader.load_template('email_template.html')
     body = template.render(
         answer=answer,
         joke=joke,
