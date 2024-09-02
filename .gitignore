@@ -62,4 +62,5 @@ db.sqlite3
 db.sqlite3-journal
 
 # email list
-recipent_emails_list.txt
+recipients.csv
+recipients.txt
