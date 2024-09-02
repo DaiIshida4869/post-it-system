@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     quote = QuoteGenerator.get_random_quote()
     # Email template
     sender = os.getenv('SES_SENDER')
-    recipient = DataLoader.load_recipients('recipients.txt')
+    recipient = DataLoader.load_recipients('recipients.csv')
     subject = "[📝 Amazon Post-It] Morning Fuel: Motivate, Secure, Explore & Laugh Today"
     template = TemplateLoader.load_template('email_template.html')
     body = template.render(
